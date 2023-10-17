@@ -4,6 +4,7 @@ import { Footer } from './components/Footer'
 import './App.css'
 import { Header } from './components/Header'
 import {useFilters} from './hooks/useFilters'
+import { Cart } from './components/Cart'
 
 
 function App() {  
@@ -16,6 +17,7 @@ const filteredProducts = filterProducts(initialProducts)
     //Context= Quitamos las props para evitar el prop drilling
     <> 
      <Header />
+     <Cart />
      <Products products={filteredProducts}/>
      <Footer />
     </>
