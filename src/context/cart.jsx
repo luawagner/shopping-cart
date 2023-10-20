@@ -14,7 +14,7 @@ export function CartProvider({ children }) {
         //recupero el índice del producto en el carrito cuyo id coincide con el producto que le paso
        const productInCartIndex = cart.findIndex(item => item.id === product.id) 
 
-       //si tengo un índice que es igual o mayor a cero, INDICE! no cantidad.
+       //si encontré el producto en el carrito significa que tengo un índice que es igual o mayor a cero, INDICE! no cantidad.
         if(productInCartIndex >= 0) {
             const newCart = structuredClone(cart)//hacemos un clon del carrito
             //porque no podemos trabajar sobre el estado original
@@ -33,6 +33,11 @@ export function CartProvider({ children }) {
             }
         ]))
     }
+
+const removeFromCart = product => {
+    setCart(prevState => prevState.filter(item => item.id !== product.id))
+}
+
     const clearCart = () => {
         setCart([])
     }
@@ -41,6 +46,7 @@ export function CartProvider({ children }) {
         <CartContext.Provider value={
            { cart,
             addToCart,
+            removeFromCart,
             clearCart}
         }>
             {children}
