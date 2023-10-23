@@ -8,7 +8,8 @@ const { cart } = useCart()
   return (
     <footer className='footer'>
       <h4>Prueba técnica de React  ⚛️</h4>
-    {JSON.stringify(cart, null, 2)}
+   {// {JSON.stringify(cart, null, 2)} 
+   }
     </footer>
   )
 }

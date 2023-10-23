@@ -25,6 +25,8 @@ export function CartProvider({ children }) {
         }
 
         //si el producto no está en el carrito
+        //Es buena práctica pedir el estado previo. La función recibe como primer parámetro el valor anterior
+        //A partir de ese nuevo valor, devolvemos el nuevo valor q tiene q tener el estado
         setCart(prevState => ([
             ...prevState,
             {
